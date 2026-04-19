@@ -24,9 +24,15 @@
 }
 
 #content {
-	background-image: url("../static/image.jpg");
-	background-color: #181818;
+	background-image: linear-gradient(rgba(10, 20, 14, 0.85), rgba(5, 10, 8, 0.92)), url('../static/Avengers-Doomsday-Logo.png');
+	background-size: 60%;
+	background-position: center;
+	background-attachment: fixed;
+	background-color: #080d0a;
 	font-family: 'Noto Sans JP', sans-serif;
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 70px;
 }
 
 #details {
@@ -34,21 +40,28 @@
 }
 
 .footer {
-	color: #e4e0e0;
-	text-align:right;
-	position: fixed;
- 	bottom: 20px;
- 	right: 20px;
- 	width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(8, 13, 10, 0.9);
+    border-top: 1px solid rgba(53, 216, 98, 0.2);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
 }
 
 h1 {
-    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #e50914;
+    font-family: 'Impact', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #35d862;
     font-weight: bold;
     margin-top: 30px;
-    text-shadow: #000000 0px 0px 13px;
- }
+    text-shadow: 0 0 25px rgba(53, 216, 98, 0.6), 4px 4px 5px #000;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
 
 .github-corner:hover .octo-arm {
   	animation: octocat-wave 560ms ease-in-out;
@@ -72,7 +85,8 @@ h1 {
 }
 
 #autoComplete {
-  background-position: 98% ;
+  background-position: 98%;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 512 512' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><path fill='%2335d862' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/></svg>") !important;
 }
 
 #name {
@@ -118,6 +132,7 @@ h6 {
 
 	#autoComplete {
 	  background-position: 97% ;
+	  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 512 512' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><path fill='%2335d862' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/></svg>") !important;
 	}
 	
 	svg[data-toggle=tooltip] {
@@ -247,4 +262,56 @@ h6 {
 .fail {
 	display: none;
 	color: white;
+}
+
+/* Fix Placeholder Color */
+.autoComplete_wrapper > input::placeholder {
+    color: #8be5a0 !important;
+    opacity: 1 !important;
+}
+.autoComplete_wrapper > input::-webkit-input-placeholder {
+    color: #8be5a0 !important;
+}
+.autoComplete_wrapper > input::-moz-placeholder {
+    color: #8be5a0 !important;
+}
+
+/* Fix Dropdown Visibility & Colors */
+.autoComplete_wrapper > ul {
+    background-color: #0b120d !important;
+    border: 1px solid #35d862 !important;
+    border-radius: 10px !important;
+    max-height: 250px !important;
+    overflow-y: auto !important;
+    z-index: 1000 !important;
+    padding: 10px 0 !important;
+}
+.autoComplete_wrapper > ul > li {
+    color: #e6e6e6 !important;
+    background-color: transparent !important;
+    padding: 10px 20px !important;
+    cursor: pointer !important;
+}
+.autoComplete_wrapper > ul > li mark {
+    color: #35d862 !important;
+    font-weight: bold;
+    padding: 0;
+}
+.autoComplete_wrapper > ul > li:hover {
+    background-color: #1a4328 !important;
+    color: #fff !important;
+}
+
+/* Recommender Elements */
+.btn-danger {
+    background-color: #35d862 !important;
+    border-color: #35d862 !important;
+    color: #0b120d !important;
+    font-weight: bold !important;
+}
+.btn-danger:hover {
+    background-color: #2ebd59 !important;
+    border-color: #2ebd59 !important;
+    box-shadow: 0 0 15px rgba(53,216,98,0.5);
+    color: #0b120d !important;
 }

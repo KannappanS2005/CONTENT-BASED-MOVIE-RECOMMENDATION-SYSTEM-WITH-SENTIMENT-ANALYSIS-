@@ -28,23 +28,23 @@
 	</div>
 	<br>
 
-<div id="mycontent">
-    <div id="mcontent">
-      <div class="poster-lg">
-        <img class="poster" style="border-radius: 40px;margin-left: 90px;" height="400" width="250" src={{poster}}>
+<div class="container" id="mycontent" style="background: rgba(10, 20, 14, 0.85); backdrop-filter: blur(10px); border: 1px solid #35d862; border-radius: 25px; padding: 40px; box-shadow: 0 0 30px rgba(0,0,0,0.8); margin-bottom: 40px; margin-top: 30px;">
+    <div id="mcontent" class="row">
+      <div class="col-md-4 text-center" style="display:flex; justify-content:center; align-items:center;">
+        <img class="poster poster-lg" style="border-radius: 15px; box-shadow: 0 0 20px rgba(53,216,98,0.3); border: 1px solid #2ebd59;" height="400" src="{{poster}}">
+        <img class="poster poster-sm" style="border-radius: 15px; box-shadow: 0 0 20px rgba(53,216,98,0.3); border: 1px solid #2ebd59; margin-bottom: 20px;" height="400" src="{{poster}}">
       </div>
-      <div class="poster-sm text-center">
-        <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src={{poster}}>
-      </div>
-      <div id="details">
-        <br/>
-        <h6 id="title" style="color:white;">Main Title: &nbsp;{{title}}</h6>
-        <h6 id="overview" style="color:white;max-width: 85%">Overvire: <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
-        <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
-        <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
-        <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
-        <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
-        <h6 id="status" style="color:white;">STATUS: &nbsp;{{status}}</h6>
+      <div class="col-md-8" id="details" style="text-align: left; margin-left: 0 !important; padding-left: 30px;">
+        <h3 id="title" style="color: #35d862; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif;">{{title}}</h3>
+        <h6 id="overview" style="color: #bac7b8; line-height: 1.6; font-size: 1.1rem; margin-bottom: 20px;"><strong>Overview:</strong> <br/>{{overview}}</h6>
+        
+        <div style="background: rgba(26, 67, 40, 0.3); padding: 20px; border-radius: 15px; border-left: 4px solid #35d862; margin-top: 20px; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+            <p style="color:white; margin-bottom: 12px; font-size: 1rem;"><strong><span style="color:#35d862;">System Rating:</span></strong> &nbsp;{{vote_average}}/10 <span style="color:#888; font-size:0.9em;">({{vote_count}} evaluations)</span></p>
+            <p style="color:white; margin-bottom: 12px; font-size: 1rem;"><strong><span style="color:#35d862;">Category:</span></strong> &nbsp;{{genres}}</p>
+            <p style="color:white; margin-bottom: 12px; font-size: 1rem;"><strong><span style="color:#35d862;">Timeline:</span></strong> &nbsp;{{release_date}}</p>
+            <p style="color:white; margin-bottom: 12px; font-size: 1rem;"><strong><span style="color:#35d862;">Duration:</span></strong> &nbsp;{{runtime}}</p>
+            <p style="color:white; margin-bottom: 0; font-size: 1rem;"><strong><span style="color:#35d862;">Status:</span></strong> &nbsp;{{status}}</p>
+        </div>
       </div>
     </div>
 </div>
@@ -54,7 +54,7 @@
   <div class="modal fade" id="{{details[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #e50914;color: white;">
+        <div class="modal-header" style="background-color: #1a3c24; border-bottom: 2px solid #35d862; color: white;">
           <h5 class="modal-title" id="exampleModalLabel3">{{name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" style="color: white">&times;</span>
@@ -81,25 +81,25 @@
   {% endfor %}
   
   {% if casts|length > 1 %}
-  <div class="movie" style="color: #E8E8E8;">
+  <div class="movie" style="color: #E8E8E8; margin-top: 60px;">
     	<center>
-		<h3>ACTORS & ACTRESSES</h3>
-		<h5>(Click on the cast to know more)</h5>
+		<h3 style="color: #35d862; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 3px; font-weight: bold;">CAST & CREW</h3>
+		<h6 style="color: #888; margin-bottom: 30px;">(Access encrypted personnel files)</h6>
 	</center>
   </div>
 
   <div class="movie-content">
         {% for name, details in casts.items() if not casts.hidden %}
-          <div class="castcard card" style="width: 15rem;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
+          <div class="castcard card" style="width: 15rem; background: rgba(10,20,14,0.8); border: 1px solid #1a4328; border-radius: 15px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
             <div class="imghvr">
-              <img class="card-img-top cast-img" id="{{details[0]}}" height="360" width="240" alt="{{name}} - profile" src="{{details[2]}}">
-              <figcaption class="fig">
-                <button class="card-btn btn btn-danger"> Know More </button>
+              <img class="card-img-top cast-img" id="{{details[0]}}" height="360" width="240" style="border-radius: 0;" alt="{{name}} - profile" src="{{details[2]}}">
+              <figcaption class="fig" style="background: rgba(53,216,98,0.2);">
+                <button class="card-btn btn btn-danger" style="border-radius: 30px; font-weight: bold; font-size: 1rem; padding: 10px 20px; box-shadow: 0 0 15px rgba(53,216,98,0.4);"> Access Profile </button>
               </figcaption>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">{{name|title}}</h5>
-              <h5 class="card-title"><span style="color:#756969;font-size: 20px;">Character: {{details[1]|title}}</span></h5>
+            <div class="card-body" style="background: linear-gradient(to bottom, #0f1c14, #050a08); text-align: center; padding: 15px;">
+              <h5 class="card-title" style="color: #35d862; font-weight: bold; margin-bottom: 5px; font-size: 1.1rem;">{{name|title}}</h5>
+              <h6 class="card-title" style="color: #bac7b8; font-size: 0.9rem;">Role: {{details[1]|title}}</h6>
             </div>
           </div>
       {% endfor %}
@@ -108,31 +108,29 @@
 
   <center>
     {% if reviews %}
-    <h2 style="color:white">USER REVIEWS</h2>
-     <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
-        <table class="table table-bordered" bordercolor="white" style="color:white">
-            <thead>
+    <h3 style="color: #35d862; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 3px; font-weight: bold; margin-top: 60px; margin-bottom: 10px; text-transform: uppercase;">Observer Feedback</h3>
+     <div class="col-md-10" style="margin: 0 auto; margin-top:20px;">
+        <table class="table" style="color:#bac7b8; background: rgba(10,20,14,0.85); border-radius: 15px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+            <thead style="background: #15261b; color: #35d862; font-size: 1.1rem; border-bottom: 2px solid #35d862;">
                 <tr>
-                    <th class="text-center" scope="col" style="width: 75%">Reviews</th>
-                    <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col" style="width: 75%; padding: 15px; border-color: transparent;">Transmission</th>
+                    <th class="text-center" scope="col" style="padding: 15px; border-color: transparent;">Status Analysis</th>
                 </tr>
             </thead>
-    
             <tbody>
 		      {% for review, status in reviews.items() if not reviews.hidden %}
-		      <tr style="background-color:#e5091485;">
-              	  <td>{{review}}</td>
-	              <td><center>
-	                  {{status}} : 
+		      <tr style="border-bottom: 1px solid #1a4328; transition: background 0.3s;" onmouseover="this.style.background='rgba(53, 216, 98, 0.15)'" onmouseout="this.style.background='transparent'">
+              	  <td style="padding: 15px; font-style: italic;">"{{review}}"</td>
+	              <td style="padding: 15px; text-align: center;">
+	                  <strong style="color: #35d862;">{{status}}</strong> 
 	                  {% if status =='Good' %}
-	                    &#128515;
+	                    <span style="font-size: 1.2rem; margin-left: 5px;">&#128515;</span>
 	                  {% else %}
-	                    &#128534;
+	                    <span style="font-size: 1.2rem; margin-left: 5px;">&#128534;</span>
 	                  {% endif %}
-	                </center>
 	              </td>
-          		</tr>
-      			{% endfor %}
+          	  </tr>
+      		  {% endfor %}
     		</tbody>
   		 </table>
     </div>
@@ -142,21 +140,24 @@
       {% if movie_cards|length > 1 %}
 
 
-      <div class="movie" style="color: #E8E8E8;">
-      <center><h3>RECOMMENDED MOVIES FOR YOU</h3><h5>(Click any of the movies to get recommendation)</h5></center>
+      <div class="movie" style="color: #E8E8E8; margin-top: 60px;">
+      <center>
+        <h3 style="color: #35d862; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 3px; font-weight: bold;">SIMILAR ANOMALIES DETECTED</h3>
+        <h6 style="color: #888; margin-bottom: 30px;">(Initiate search on recommended timelines)</h6>
+      </center>
     </div>
 
     <div class="movie-content">
       {% for poster, title in movie_cards.items() if not movie_cards.hidden %}
-        <div class="card" style="width: 15rem;" title="{{title}}" onclick="recommendcard(this)">
+        <div class="card" style="width: 15rem; background: rgba(10,20,14,0.8); border: 1px solid #1a4328; border-radius: 15px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);" title="{{title}}" onclick="recommendcard(this)">
           <div class="imghvr">
-            <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src={{poster}}>
-            <figcaption class="fig">
-              <button class="card-btn btn btn-danger">View </button>
+            <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src="{{poster}}" style="border-radius: 0;">
+            <figcaption class="fig" style="background: rgba(53,216,98,0.2);">
+              <button class="card-btn btn btn-danger" style="border-radius: 30px; font-weight: bold; font-size: 1rem; padding: 10px 20px; box-shadow: 0 0 15px rgba(53,216,98,0.4);">Initiate Protocol</button>
             </figcaption>
            </div>
-          <div class="card-body">
-            <h5 class="card-title">{{title|capitalize}}</h5>
+          <div class="card-body" style="background: linear-gradient(to bottom, #0f1c14, #050a08); text-align: center; padding: 15px;">
+            <h5 class="card-title" style="color: #35d862; font-weight: bold; font-size: 1.1rem;">{{title|capitalize}}</h5>
           </div>
         </div>
     {% endfor %}

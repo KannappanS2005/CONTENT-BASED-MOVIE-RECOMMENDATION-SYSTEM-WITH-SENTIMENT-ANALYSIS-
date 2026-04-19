@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Netflix Recommender System</title>
+  <title>Avengers Doomsday Recommender</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -32,28 +32,64 @@
   <div class="ml-container" style="display: block;">
 
     <center>
-      <h1 style=""> Netflix Recommender System</h1>
+      <div class="countdown-section" style="margin: 30px 0;">
+        <h4
+          style="letter-spacing: 12px; color: #e6e6e6; text-transform: uppercase; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; margin-bottom: 25px;">
+          Doomsday Is Coming</h4>
+        <div id="countdown"
+          style="display: flex; justify-content: center; gap: 15px; font-size: 3.5rem; font-weight: bold; color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+          <div class="time-block" style="text-align: center;">
+            <span id="cd-months">00</span>
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: #a9b9a6; font-weight: normal;">MONTHS</div>
+          </div>
+          <span style="color: #666; padding-top: 5px;">:</span>
+          <div class="time-block" style="text-align: center;">
+            <span id="cd-days">00</span>
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: #a9b9a6; font-weight: normal;">DAYS</div>
+          </div>
+          <span style="color: #666; padding-top: 5px;">:</span>
+          <div class="time-block" style="text-align: center;">
+            <span id="cd-hours">00</span>
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: #a9b9a6; font-weight: normal;">HOURS</div>
+          </div>
+          <span style="color: #666; padding-top: 5px;">:</span>
+          <div class="time-block" style="text-align: center;">
+            <span id="cd-minutes">00</span>
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: #a9b9a6; font-weight: normal;">MIN</div>
+          </div>
+          <span style="color: #666; padding-top: 5px;">:</span>
+          <div class="time-block" style="text-align: center;">
+            <span id="cd-seconds">00</span>
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: #a9b9a6; font-weight: normal;">SEC</div>
+          </div>
+        </div>
+      </div>
     </center>
-    <div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: white;">
-      <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
-        placeholder="Enter the Movie Name/title"
-        style="background-color: #ffffff;border-color:#ffffff;width: 60%;color: #181818" required="required" />
-      <br>
-    </div>
+    <div class="search-container" style="background: rgba(10, 20, 14, 0.85); backdrop-filter: blur(10px); border: 1px solid #35d862; border-radius: 25px; padding: 40px; box-shadow: 0 0 30px rgba(0,0,0,0.8); max-width: 750px; margin: 0 auto; margin-top: 30px;">
+        <h4 style="color: #35d862; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; text-align: center;">Locate Target</h4>
+        
+        <div class="form-group shadow-textarea" style="text-align: center; color: white; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+          <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
+            placeholder="Search the multiverse..."
+            style="background-color: #0b120d; border: 2px solid #35d862; width: 100%; max-width: 600px; color: #35d862; font-size: 1.2rem; padding: 15px 20px; border-radius: 30px; box-shadow: inset 0 0 10px rgba(53,216,98,0.2), 0 0 20px rgba(53,216,98,0.1); font-weight: bold;"
+            required="required" />
 
-    <div class="form-group" style="text-align: center;">
-      <button class="btn btn-primary btn-block movie-button"
-        style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;"
-        disabled="true">Search</button><br><br>
+          <button class="btn btn-primary movie-button"
+            style="background-color: #35d862; border-color: #35d862; width: 250px; color: #0b120d; font-weight: 800; font-size: 1.2rem; padding: 12px 0; box-shadow: 0 0 20px rgba(53,216,98,0.6); border-radius: 30px; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;"
+            disabled="true">Engage</button>
+        </div>
     </div>
   </div>
 
   <div id="loader" class="text-center">
   </div>
 
-  <div class="fail">
+  <div class="fail" style="margin-top: 30px;">
     <center>
-      <h3>Sorry! try another movie name/title </h3>
+      <div style="background: rgba(10, 20, 14, 0.85); backdrop-filter: blur(5px); border: 1px solid #35d862; border-radius: 15px; padding: 25px; max-width: 600px; box-shadow: 0 0 20px rgba(53,216,98,0.3);">
+         <h4 style="color: #35d862; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; font-family: 'Impact', 'Helvetica Neue', Arial, sans-serif;">Timeline Not Found</h4>
+         <h5 style="color: #bac7b8; margin: 0; line-height: 1.5; font-size: 1.1rem;">No records found in this universe.<br>Try another title.</h5>
+      </div>
     </center>
   </div>
 
@@ -63,7 +99,9 @@
     </center>
   </div>
 
-  <div class="footer" style="">Made with<span style="font-size:150%;color:red;"> &hearts; </span>by Kannappan S</div>
+  <div class="footer" style="color: #bac7b8">Forged by <span
+      style="font-size:150%;color:#35d862;text-shadow: 0 0 5px #35d862;"> &infin; </span> Doom Technology | Kannappan S
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
   <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
@@ -71,6 +109,46 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
 
+  <script>
+    // Countdown Timer to Dec 18, 2026
+    const targetDate = new Date('December 18, 2026 00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+
+      if (now >= targetDate) {
+        document.getElementById('countdown').innerHTML = "<h2 style='color: #35d862; text-shadow: 0 0 15px #35d862;'>DOOMSDAY HAS ARRIVED</h2>";
+        return;
+      }
+
+      let months = targetDate.getMonth() - now.getMonth() +
+        (12 * (targetDate.getFullYear() - now.getFullYear()));
+
+      let tempDate = new Date(now.getFullYear(), now.getMonth() + months, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+
+      if (tempDate > targetDate) {
+        months--;
+      }
+
+      const latestMonth = new Date(now.getFullYear(), now.getMonth() + months, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+      const distance = targetDate.getTime() - latestMonth.getTime();
+
+      const daysInMilli = 1000 * 60 * 60 * 24;
+      const days = Math.floor(distance / daysInMilli);
+      const hours = Math.floor((distance % daysInMilli) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-months').innerText = String(months).padStart(2, '0');
+      document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+      document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
+      document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 
 </html>
